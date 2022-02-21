@@ -34,10 +34,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          
+  
+ PMD:
+  
+- name: PMD Source Code Analyzer Action
+  uses: sfdx-actions/setup-pmd@v1
 
-- name: Super-Linter
-  uses: github/super-linter@v4.9.0
   env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
