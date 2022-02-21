@@ -26,10 +26,10 @@ if (argc > 1 && (fp=fopen(argv[i], "r")) == NULL) {
        if (c == ' ' || c == '\t' || c == '\n')
           inword = 0;
        else if (inword == 0) {
-inword = 1; 
-++wordct; 
-                                 } 
-                 }
+            inword = 1; 
+             ++wordct; 
+                              } 
+        }
                   
                printf("%7ld %7ld %7ld", linect, wordct, charct);
   if (argc > 1)
