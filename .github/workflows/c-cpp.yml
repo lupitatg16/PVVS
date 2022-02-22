@@ -1,5 +1,4 @@
 name: C program
-
 on: [push, workflow_dispatch]
 
 jobs:
