@@ -15,7 +15,7 @@ jobs:
         uses: billyan2018/setup-pmd@1.2 
       
       - uses: sfdx-actions/setup-pmd@v1
-        with:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run-pmd
         run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
