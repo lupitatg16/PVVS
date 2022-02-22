@@ -1,9 +1,2 @@
 language: c
 script: make
-
-      # Runs PMD
-      - name: PMD Code Analyzer Action
-      # You may pin to the exact commit or the version.
-      # uses: billyan2018/setup-pmd@6ddfaf4aa1ef5619ad37482d08a46f6695ec23ab
-      uses: billyan2018/setup-pmd@1.2
- 
