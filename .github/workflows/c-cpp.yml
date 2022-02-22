@@ -16,7 +16,7 @@ jobs:
       
       - uses: sfdx-actions/setup-pmd@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run-pmd
         run: pmd -d ./force-app/main/default/classes -R category/apex/design.xml -f text
 
