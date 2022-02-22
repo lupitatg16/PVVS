@@ -29,7 +29,7 @@ if (argc > 1 && (fp=fopen(argv[i], "r")) == NULL) {
             inword = 1; 
              ++wordct; 
                               } 
-        }
+  }
                   
                printf("%7ld %7ld %7ld", linect, wordct, charct);
   if (argc > 1)
