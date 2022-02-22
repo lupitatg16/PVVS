@@ -6,7 +6,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Run Commands
-        run: gcc -v
+        run: sudo gcc -v
       
       - name: PMD Code Analyzer Action
       # You may pin to the exact commit or the version.
