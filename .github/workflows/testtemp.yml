@@ -1,0 +1,51 @@
+name: C program
+on: [push, workflow_dispatch]
+
+jobs:
+  test1:
+    runs-on: macos-latest
+    steps:
+      - name: Run Commands
+        run: sudo gcc -v
+      
+      - name: PMD Code Analyzer Action
+      # You may pin to the exact commit or the version.
+        uses: billyan2018/setup-pmd@1.2 
+      
+      - uses: sfdx-actions/setup-pmd@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: PMD source check
+
+  pmd:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: krukmat/setup-pmd@v0.4
+      - run: npm run apex-pmd
+      
+BEGIN PACKAGE.JSON FILE
+{
+  "scripts": {
+    "apex-pmd": "pmd -d sourceFolderName -R ci/pmd.xml -f text"
+  },
+}
+
+BEGIN pmd.xml FILE
+
+<?xml version="1.0"?>
+
+<ruleset name="Braces"
+  xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+<description>
+The Braces ruleset contains rules regarding the use and placement of braces.
+</description>
+
+  <rule ref="category/apex/codestyle.xml/ForLoopsMustUseBraces" deprecated="true" />
+  <rule ref="category/apex/codestyle.xml/IfElseStmtsMustUseBraces" deprecated="true" />
+  <rule ref="category/apex/codestyle.xml/IfStmtsMustUseBraces" deprecated="true" />
+  <rule ref="category/apex/codestyle.xml/WhileLoopsMustUseBraces" deprecated="true" />
+
+</ruleset>
