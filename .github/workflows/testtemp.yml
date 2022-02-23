@@ -1,24 +1,8 @@
-name: C program
-on: [push, workflow_dispatch]
-
+name: PMD source check
+on: [push]
 jobs:
-  test1:
-    runs-on: macos-latest
-    steps:
-      - name: Run Commands
-        run: sudo gcc -v
-      
-      - name: PMD Code Analyzer Action
-      # You may pin to the exact commit or the version.
-        uses: billyan2018/setup-pmd@1.2 
-      
-      - uses: sfdx-actions/setup-pmd@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          name: PMD source check
-
   pmd:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: krukmat/setup-pmd@v0.4
